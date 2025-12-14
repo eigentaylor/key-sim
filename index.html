@@ -298,7 +298,9 @@
             const generateElectoralSystem = () => {
                 const n = numStates;
                 const regionKeys = Object.keys(regions);
-                const selectedNames = stateNames.slice(0, n);
+                const selectedNames = stateNames
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, n);
 
                 const initialStates = selectedNames.map((name, i) => {
                     const region = regionKeys[i % regionKeys.length];
